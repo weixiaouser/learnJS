@@ -1,0 +1,111 @@
+<html>
+	<head>
+		<script type="text/javascript">
+			function MyClick(){
+					var aTeam = new Array();
+					aTeam[0] = "aaa";
+					aTeam[1] = "bbb";
+					aTeam[2] = "ccc";
+					aTeam[3] = "ddd";
+					//var aTeam = ["aaa","bbb","ccc","ddd"];
+					alert(aTeam[2]);
+					alert(aTeam.toString());//把数组内容转为String类型
+					alert(aTeam.join("_").toString());//用下划线连接数组内容
+					alert(aTeam.reverse().toString());//倒序显示数组内容
+					
+					var sString = "dsa_ddsa_dsa";
+					var aTeam1 = sString.split("_");//以下划线分割字符串
+					alert(aTeam1[2]);
+				}
+			function ifClick(){
+				//= 一个等于表示赋值
+				//== 两个等于表示判断是否相等（与类型无关），如下所示第一个if判断是成立的
+				//=== 判断是否相等（与类型相关） ，如下所示第二个条件判断是不成立的
+				var iNum = 10;
+				var sNum ="10";
+				var iNum2 = 0;
+				
+				if(iNum == sNum){
+					iNum2 = iNum;
+					}
+				alert(iNum2);
+				if(iNum === sNum){
+					iNum2 = 999;
+					}
+					alert(iNum2);
+				}
+				function whileClick(){
+					var i = 1;
+					var iSum = 0;
+					while(i <101){
+						iSum+= i;
+						i++;
+						}
+						alert(iSum);
+					}
+					
+					function promptClick(){
+							var sInput = prompt("请输入1～7之间的整数");
+							
+							try{
+									if(sInput == parseInt(sInput)){
+										alert(sInput)
+										
+									}else{
+										alert("输入的不是一个整数");
+											}
+						}catch(e){
+							alert("输入的不是一个整数");
+							}
+					}
+					
+					function mathClick(){
+							alert(Math.PI);
+							alert(Math.max(10,22,33));
+							alert(Math.min(10,22,44));
+							alert(Math.round(12.56));
+							alert(Math.ceil(12.5));
+							alert(Math.floor(12.1))
+							alert(Math.floor(Math.random()*100+1));
+						}
+						function dateClick(){
+							var mDate = new Date();
+							alert(mDate.getFullYear());//获取年
+							alert(mDate.getMonth()+1);//月 注意此处获取的值是从0开始的，例如当前是9月 得到的值为8,所以要+1
+							alert(mDate.getDate());//日
+							alert(mDate.getSeconds());
+							}
+							
+							function timerClick(){
+								var i=0;
+								//var timer = setInterval(function(){
+								//	i++ ;
+								//if(i = 6){
+								//				clearInterval(timer2);
+								//			}
+								//	document.getElementById("d1").innerText = i;
+								//	},1000);
+									
+									setTimeout(function(){
+										i++;
+										
+											document.getElementById("d1").innerText = i;
+										},1000);
+							}
+		</script>
+		<style>
+			#d1{width:100px;height:100px;border:1px solid #ddd;}	
+			</style>
+	</head>
+		<body>
+			<button type="button" name="btn" onclick="MyClick()">按钮出来吧</button>	
+			<input type="button" name="but" value="按钮" onclick="ifClick()">
+			<input type="button" name="t" value="while按钮" onclick="whileClick()">
+			<input type="button" name="prompt" value="promptbutton" onclick="promptClick()">
+			<input type="button" name="math" value="Math按钮" onclick="mathClick()">
+			<input type="button" value="DateButton" onclick="dateClick()">
+			<div id="d1" ></div>
+			<div id="d2"></div>
+			<input type="button" value="TimerButton" onclick="timerClick()">
+		</body>
+	</html>

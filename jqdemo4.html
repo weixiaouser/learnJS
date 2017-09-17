@@ -1,0 +1,55 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>JQ选择器</title>
+    <script src="js/jquery-1.11.0.min.js"></script>
+    <style type="text/css">
+        .c1{color:green;}
+        .c2{font-size:40px;}
+    </style>
+    <script type="text/javascript">
+       // $(function(){
+           // $(".d1").parent().css("color","red");
+           //$(".d1").parents().css("color","red");
+          // $(".d1").parent().parent().css("color","red");
+         // $(".d1").children().css("color","red");
+         //$(".d1").prev().css("color","red");
+         //$(".d1").prevAll().css("color","red");
+        // $(".d1").next().css("color","red");
+       // $(".d1").nextAll().css("color","red");
+       //alert($("div").size());
+        //$(".d1").css({"color":"red","font-size":"40px"})
+        /*$(".d1").addClass("c1 c2");
+        $(".d1").removeClass("c1");
+        $(".d1").find("span").css("color","red");*/
+       /* $("div").addClass("c1").filter(
+            function (index) {
+                return index==1||$(this).attr("id")=="d3"}).addClass("c2");
+        })*/
+        $(function(){
+            //$("#d1").append("<p>2222</p>");
+            $("<p>333</p>").appendTo("#d1")
+            $("<p>4444</p>").insertAfter("#d1");
+        })
+
+    </script>
+</head>
+<body>
+    <div id="d1"></div>
+    <div id="d2">aaaaaaaaaaaaa</div>
+    <div id="d3">aaaaaaaaaaaaa</div>
+    <div id="d4">aaaaaaaaaaaaa</div>
+    <!-- <div id="d3">
+        <div >ddddddddddddd</div>
+        <div >eeeeeeeeee</div>
+        <div class="d1">
+            <span>999999999</span>
+            <div>fffffffffffffff</div>
+            <div>fffffffffffffff</div>
+            <div>fffffffffffffff</div>
+        </div>
+        <div>cccccccccccccc</div>
+        <div>wwwwwwwwwwww</div>
+    </div> -->
+</body>
+</html>

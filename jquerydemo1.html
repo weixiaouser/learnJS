@@ -1,0 +1,32 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Jquery</title>
+    <script src="js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript">
+    //$(function(){});是等待页面加载完成之后实现其他内容
+        $(function(){
+            //Jquery 实现
+           /* $("#btn").click(function(){
+                alert("222");
+            });*/
+            //原生JS实现
+            /*document.getElementById("btn").onclick = function(){
+                alert("hello world");
+            }*/
+
+            $("p:odd").css("color","red");//设置p标签偶数行字体颜色为红色
+            $("p:even").css("color","green");//设置奇数行字体颜色为绿色
+        });
+    </script>
+</head>
+<body>
+    <input type="button" id="btn" value="按钮">
+    <p>aaaaaaaaaaaaaaaaa</p>
+    <p>aaaaaaaaaaaaaaaaa</p>
+    <p>aaaaaaaaaaaaaaaaa</p>
+    <p>aaaaaaaaaaaaaaaaa</p>
+    <p>aaaaaaaaaaaaaaaaa</p>
+    <p>aaaaaaaaaaaaaaaaa</p>
+</body>
+</html>
