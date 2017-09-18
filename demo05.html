@@ -14,23 +14,57 @@
         #tabs{position: absolute;top:450px; left:450px;}
         .tab{background-color:red; color:#fff;float:left;
             margin-right:10px;width: 30px; height: 30px;text-align: center;
-            line-height: 30px;border-radius: 20px;
-        }
+            line-height: 30px;border-radius: 20px;cursor: pointer;
+            }
+        .bj{background-color:green;}
     </style>
     <script type="text/javascript">
         var i=0;
+        var timer;
         $(function (){
             $(".ign").eq(0).show().siblings().hide();
-            setInterval(function(){
-                i++;
+
+            showTimer();
+            $(".tab").hover(function(){
+                i=$(this).index();
+                show();
+                clearInterval(timer);
+            },function(){
+                showTimer();
+            });
+            $(".btn1").click(function(){
+                clearInterval(timer);
+                if(i==0){
+                    i=3;
+                }
+                i--;
+                show();
+                showTimer();
+            });
+            $(".btn2").click(function(){
+                clearInterval(timer);
                 if(i==2){
+                    i=-1;
+                }
+                i++;
+                show();
+                showTimer();
+            })
+        });
+        function show(){
+             $(".ign").eq(i).fadeIn(300).siblings().fadeOut(300);//渐变效果
+             $(".tab").eq(i).addClass("bj").siblings().removeClass("bj");
+        }
+        function showTimer(){
+            timer = setInterval(function(){
+                i++;
+                if(i==3){
                     i=0;
                 }
                 //$(".ign").eq(i).show().siblings().hide();
-                $(".ign").eq(i).fadeIn(300).siblings().fadeOut(300);//渐变效果
+               show();
             },4000);
-        });
-
+        }
     </script>
 </head>
 <body>
@@ -42,7 +76,7 @@
     <div class="btn btn1"><</div>
     <div class="btn btn2">></div>
     <div id="tabs">
-        <div class="tab">1</div>
+        <div class="tab bj">1</div>
         <div class="tab">2</div>
         <div class="tab">3</div>
     </div>
