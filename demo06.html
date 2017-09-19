@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bird</title>
+    <script src="js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            var $bird = $("#dbird");//获取小鸟对象
+            var pos = $bird.offset();//获取小鸟方位 top ,left
+            var birdSize = {width:$bird.width(),height:$bird.height()};//获取小鸟大小
+            var speed = 10;//移动速度
+            var keyrecord = 39;
+            $(document).keydown(function(even){
+                var key = even.keyCode;
+                if(key != keyrecord){
+                    $bird.removeClass().addClass("dir_"+key);
+                }
+                keyrecord = key;
+                switch(key){
+                    case 37 ://左
+                    pos.left -=speed;
+                    if(pos.left <= -birdSize.width){
+                        pos.left = $(window).width();
+                    }
+                    break;
+                    case 38 ://上
+                    pos.top -=speed;
+                    if(pos.top <= -birdSize.height){
+                        pos.top = $(window).height();
+                    }
+                    break;
+                    case 39 ://右
+                    pos.left +=speed;
+                    if(pos.left >= $(window).width()){
+                        pos.left = -birdSize.width;
+                    }
+                    break;
+                    case 40 ://下
+                    pos.top +=speed;
+                    if(pos.top >= $(window).height()){
+                        pos.top =-birdSize.height;
+                    }
+                    break;
+                }
+                $bird.offset(pos);
+            })
+
+        })
+    </script>
+    <style type="text/css">
+        body{overflow: hidden;}
+        #dbird{position:absolute;}
+        .dir_37{transform:rotateY(180deg); }
+        .dir_38{transform:rotate(-60deg);}
+        .dir_40{transform:rotate(60deg);}
+    </style>
+</head>
+<body>
+        <div id="dbird"><img src="images/bird.gif"></div>
+</body>
+</html>
