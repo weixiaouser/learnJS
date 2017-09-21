@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>手风琴</title>
+    <script src="js/jquery-1.11.0.min.js"></script>
+    <style type="text/css">
+         *{padding:0px;margin:0px;list-style-type: none;text-decoration: none;ss}
+        .pic{width:1800; height:500px;margin-top:70px;}
+        .pic ul li{height:500px;width:100px;float:left;}
+        .pic1{
+            background-image: url("images/1.jpg");
+        }
+        .pic2{
+            background-image: url("images/3.jpg");
+        }
+        .pic3{
+            background-image: url("images/6.jpg");
+        }
+        .pic ul .pic4{
+            background-image: url("images/7.jpg");
+            width:600px;
+        }
+        .text {
+            background-color: #000;
+            background:rgba(0,0,0,0.3);
+            height:450px;
+            width:100px;
+            color:#fff;
+            padding:25px 20px;
+        }
+        .text p{
+            float:left;
+        }
+       .p1{
+            font-size:12px;
+            width:12px;
+        }
+        .p2{
+            font-size: 14px;
+            width:14px;
+            margin-left:20px;
+        }
+    </style>
+    <script type="text/javascript">
+        $(function(){
+            $(".pic ul li").mouseover(function(){
+                 $(this).stop(true).animate({width:"600px"},1000).siblings().animate({width:"100px"},1000);
+            });
+
+        })
+    </script>
+</head>
+<body>
+    <div class="pic">
+    <ul>
+        <li class="pic1">
+            <a href="javascript:void(0);">
+                <div class="text">
+                    <p class="p1">随便写几个文字呢</p>
+                    <p class="p2">随便写几个文字呢sir</p>
+                </div>
+            </a>
+        </li>
+        <li class="pic2">
+            <a href="javascript:void(0);">
+                <div class="text">
+                    <p class="p1">随便写几个文字呢</p>
+                    <p class="p2">随便写几个文字呢sir</p>
+                </div>
+            </a>
+        </li>
+        <li class="pic3">
+            <a href="javascript:void(0);">
+                <div class="text">
+                    <p class="p1">随便写几个文字呢</p>
+                    <p class="p2">随便写几个文字呢sir</p>
+                </div>
+            </a>
+        </li>
+        <li class="pic4">
+            <a href="javascript:void(0);">
+                <div class="text">
+                    <p class="p1">随便写几个文字呢</p>
+                    <p class="p2">随便写几个文字呢sir</p>
+                </div>
+            </a>
+        </li>
+    </ul>
+    </div>
+</body>
+</html>
