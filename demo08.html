@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>飘雪</title>
+    <script src="js/jquery-1.11.0.min.js"></script>
+    <style type="text/css">
+        *{padding:0px;margin:0px;}
+        body{background-color:#000;}
+    </style>
+    <script type="text/javascript">
+        var minSize = 5;
+        var maxSize = 50;
+        var newOn = 100;//单位毫秒
+        var flakeColor="#fff";
+        //var flake = $("<div></div>").css({"position":"absolute","top":"-50px"}).html("❄");
+        var flake = $("<div></div>").css({"position":"absolute","top":"-50px"})
+        .html("<img src='images/money.jpg' style='width:150px;'>");
+        $(function(){
+            var documentHeight = $(document).height();//浏览器高度
+            var documentWidth = $(document).width();
+            setInterval(function(){
+                var startPositionLeft =Math.random()*documentWidth;
+                var startOpacity = 0.7+Math.random()*maxSize;
+                var endPositionTop = documentHeight;
+                var endPositionLeft = Math.random()*documentWidth;
+                var durationFall = 5000+Math.random()*3000;
+                var sizeFlake = minSize+Math.random()*maxSize;
+                flake.clone().appendTo("body").css({"left":startPositionLeft
+                    ,"opacity":startOpacity,"font-size":sizeFlake,"color":flakeColor}).animate({
+                        "top":endPositionTop,
+                        "left":endPositionLeft,
+                        "opacity":0.5
+                    },durationFall,function(){
+                        $(this).remove();
+                    });
+
+            },newOn);
+        })
+    </script>
+</head>
+<body>
+
+</body>
+</html>
