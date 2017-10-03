@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>三级联动</title>
+    <script src="js/jquery-1.11.0.min.js"></script>
+    <style type="text/css">
+
+    </style>
+    <script type="text/javascript">
+        var iNum1;
+        var iNum2;
+        var aProvince = ["河北省","山东省","湖北省"];
+        var aCity = [["石家庄市","张家口市","承德市","秦皇岛市"],
+        ["济南市","青岛市","泰安市"],["武汉市"]];
+         var aCountry=[[["无极县","赵县"],["河北省县"]],[["新泰市","肥城市"]]]
+        $(function(){
+            for(var i = 0; i<aProvince.length;i++){
+                $("#selProvince").append("<option>"+aProvince[i]+"</option")
+            }
+            $("#selProvince").change(function(){
+                $("#selCity").children().not(":eq(0)").remove();
+                $("#selCountry").children().not(":eq(0)").remove();
+                iNum1 = $(this).children("option:selected").index();
+                var aaCity = aCity[iNum1 -1];
+                for(var j = 0; j<aaCity.length;j++){
+                $("#selCity").append("<option>"+aaCity[j]+"</option")
+            }
+            });
+            $("#selCity").change(function(){
+                $("#selCountry").children().not(":eq(0)").remove();
+                iNum2 = $(this).children("option:selected").index();
+                var aaCountry = aCountry[iNum1-1][iNum2-1];
+                for(var z = 0; z<aaCountry.length;z++){
+                $("#selCountry").append("<option>"+aaCountry[z]+"</option")
+            }
+            })
+
+
+        })
+    </script>
+</head>
+<body>
+        <select id="selProvince">
+            <option>---请选择---</option>
+        </select>
+        <select id="selCity">
+            <option>---请选择---</option>
+        </select>
+        <select id="selCountry">
+            <option>---请选择---</option>
+        </select>
+</body>
+</html>
