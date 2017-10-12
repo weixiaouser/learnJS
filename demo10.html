@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>模仿百度登录页面</title>
+    <script src="js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="js/layer/layer.js"></script>
+    <style type="text/css">
+        *{padding:0px;
+            margin:0px;
+            font-family: "微软雅黑";
+        }
+        a{
+            text-decoration: none;
+        }
+        #header{
+            width:100%;
+            height:40px;
+            background-color:#000;
+            }
+        #header-con{
+            width:900px;
+            height:40px;
+            margin:0 auto;
+        }
+        #header-con div{
+            float:right;
+            line-height: 40px;
+            margin-left:10px;
+
+        }
+        #header-con div a{
+            color:#fff;
+        }
+        .login-item input{
+            width:350px;
+            height:40px;
+        }
+        .login-item a{
+            width:350px;
+            height:50px;
+            background-color:#b03939;
+            display: block;
+            text-align: center;
+            line-height: 50px;
+            color:#fff;
+            font-size: 30px;
+        }
+        .login-item{
+            margin-top:25px;
+            margin-left:20px;
+        }
+        #loginbox{
+            display:none;
+        }
+    </style>
+    <script type="text/javascript">
+        function showLoginBox(){
+                layer.open({
+                    type:1,
+                    title:"登录",
+                    area:["395px","300px"],
+                    content:$("#loginbox")
+                })
+        }
+        function Login(){
+            var username = $.trim($("#txtUserName").val());
+            var pwd = $.trim($("#txtPwd").val());
+            if(username == "" || pwd == ""){
+                layer.alert("用户名或者密码不能为空",{
+                    title:"提示",
+                    icon:5
+                })
+            }
+        }
+    </script>
+</head>
+<body>
+
+    <div id="header">
+        <div id="header-con">
+            <div><a href="javascript:;" id="blogin" onclick="showLoginBox()">登录</a></div>
+            <div><a href="javascript:;" id="breg">注册</a></div>
+        </div>
+    </div>
+    <div id="loginbox">
+        <div class="login-item">
+            <input type="text" id="txtUserName" placeholder="请输入用户名"/>
+        </div>
+        <div class="login-item">
+            <input type="password" id="txtPwd" placeholder="请输入密码"/>
+        </div>
+        <div class="login-item">
+            <a href="javascript:;" onclick="Login()">登录</a>
+        </div>
+    </div>
+</body>
+</html>
