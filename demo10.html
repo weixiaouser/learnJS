@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>模仿百度登录页面</title>
     <script src="js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="js/jquery.cookie.js"></script>
     <script type="text/javascript" src="js/layer/layer.js"></script>
     <style type="text/css">
         *{padding:0px;
@@ -53,6 +54,56 @@
         #loginbox{
             display:none;
         }
+        #header-con .dbg{
+            float:left;
+        }
+        #dimgbox{
+            width:100%;
+            height:140px;
+            background-color:#fff;
+            display:absolute;
+            left:0px;
+            top:0px;
+            display:none;
+        }
+        #dimgtitle{
+            height:40px;
+            width:100%;
+            border-bottom:solid 1px #ccc;
+        }
+        #imgtitle-con{
+            width:900px;
+            height:400px;
+            margin:0 auto;
+            line-height:40px;
+        }
+        #title1{
+            float:left;
+        }
+        #title a{
+            width:40px;
+            display:block;
+            background-color:#201eeb;
+            color:#fff;
+            text-align:center;
+
+        }
+        #title2{
+            float:right;
+        }
+        #imglist{
+            width:900px;
+            height:65px;
+            margin:0 auto;
+            margin-top:15px;
+        }
+        #imglist img{
+            width:100px;
+        }
+        .imgitem{
+            float:left;
+            margin-right:5px;
+        }
     </style>
     <script type="text/javascript">
         function showLoginBox(){
@@ -73,12 +124,34 @@
                 })
             }
         }
+        function ShowImageBox(){
+            $("#dimgbox").slideDown();
+        }
+        function hideImagBox(){
+            $("#dimgbox").slideUp();
+        }
+        $(function(){
+                if($.cookie("bg-pic")==""||$.cookie("bg-pic")==null){
+                    $("body").css("background-image","url(images/bg0.jpg)");
+                }else{
+                    $("body").css("background-image","url('"+$.cookie("bg-pic")+"')");
+                }
+            $(".imgitem img").click(function(){
+                var srcs=$(this).attr("src");
+                $("body").css("background-image","url('"+srcs+"')");
+                $.cookie("bg-pic",srcs);
+        });
+        })
+
+
+
     </script>
 </head>
 <body>
 
     <div id="header">
         <div id="header-con">
+            <div class="dbg"><a href="javascript:;" onclick="ShowImageBox()">换肤</a></div>
             <div><a href="javascript:;" id="blogin" onclick="showLoginBox()">登录</a></div>
             <div><a href="javascript:;" id="breg">注册</a></div>
         </div>
@@ -92,6 +165,19 @@
         </div>
         <div class="login-item">
             <a href="javascript:;" onclick="Login()">登录</a>
+        </div>
+    </div>
+    <div id="dimgbox">
+        <div id="dimgtitle">
+            <div id="imgtitle-con">
+                <div id="title1"><a href="javascript:;">热门</a></div>
+                <div id="title2"><a href="javascript: ;" onclick="hideImagBox()">收起</a></div>
+            </div>
+        </div>
+        <div id="imglist">
+            <div class="imgitem"><img src="images/bg0.jpg"></div>
+            <div class="imgitem"><img src="images/bg1.jpg"></div>
+            <div class="imgitem"><img src="images/bg2.jpg"></div>
         </div>
     </div>
 </body>
