@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>GUESS GAME</title>
+    <script src="js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript">
+        function myClick(){
+            var iNumber = Math.floor(Math.random()*100+1);
+            for(var i=1;i<7;i++){
+                if(i==6){
+                    alert("game over！中奖号码是："+iNumber);
+                }else{
+                    var sInput = prompt("请输入1～100之间的整数");
+                    try{
+                    var nInput = parseInt(sInput);
+                    if(nInput == sInput){
+                        if(nInput>100 || nInput<1){
+                            alert("您输入的的数字不在1～100之间！");
+                        }else{
+                            if(nInput>iNumber){
+                                alert("您输入的数字太大了！");
+                            }else if(nInput<iNumber){
+                                alert("您输入的数字太小了！");
+                            }else{
+                                alert("恭禧您中奖了！")
+                                return;
+                            }
+                        }
+                    }else{
+                        alert("您输入的不是一个整数！");
+                    }
+                }catch(e){
+                    alert("您输入的不是一个整数！");
+                }
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+<button value="我是一个按钮" onclick="myClick()">点击按钮开始进入猜数字游戏</button>
+</body>
+</html>
