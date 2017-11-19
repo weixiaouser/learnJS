@@ -29,8 +29,17 @@
     <script type="text/javascript">
         var raNum;
         $(function(){
+            var i =0;
             $("#d2").click(function(){
+                i++;
+                if(i>3){
+                    alert("您只有三次抽奖机会！");
+                    return;
+                }
                 raNum = Math.random()*360;
+                if(0<raNum && raNum<18||270<raNum && raNum<=306){
+                    raNum = 20;
+                }
                 $(this).rotate({
                     duration:3000,
                     angle:0,
@@ -42,34 +51,34 @@
             })
         });
         function A(){
-            if(-18<raNum && raNum<18){
+            if(0<raNum && raNum<18){
                 alert("一等奖");
                 return;
-            } else if(18<raNum && raNum<54){
+            } else if(18<raNum && raNum<=54){
                 alert("谢谢参与");
                 return;
-            } else if(54<raNum && raNum<90){
+            } else if(54<raNum && raNum<=90){
                 alert("五等奖");
                 return;
-            } else if(90<raNum && raNum<126){
+            } else if(90<raNum && raNum<=126){
                 alert("九等奖");
                 return;
-            } else if(126<raNum && raNum<162){
+            } else if(126<raNum && raNum<=162){
                 alert("四等奖");
                 return;
-            } else if(162<raNum && raNum<198){
+            } else if(162<raNum && raNum<=198){
                 alert("八等奖");
                 return;
-            } else if(198<raNum && raNum<234){
+            } else if(198<raNum && raNum<=234){
                 alert("三等奖");
                 return;
-            } else if(234<raNum && raNum<270){
+            } else if(234<raNum && raNum<=270){
                 alert("七等奖");
                 return;
-            } else if(270<raNum && raNum<306){
+            } else if(270<raNum && raNum<=306){
                 alert("二等奖");
                 return;
-            } else if(306<raNum && raNum<342){
+            } else if(306<raNum && raNum<=342){
                 alert("六等奖");
                 return;
             }
