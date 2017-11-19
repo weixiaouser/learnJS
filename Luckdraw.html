@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>LUCK DRAW</title>
+    <script src="js/jquery-1.11.0.min.js"></script>
+    <script src="js/jQueryRotate.js"></script>
+
+    <style type="text/css">
+        *{padding:0px;
+            margin:0px;
+        }
+        body{background-color:#fff;}
+        #d1{
+            width:480px;
+            height:480px;
+            background-image:url("images/timgs.jpg");
+        }
+        #d2{
+            width:200px;
+            height:200px;
+            background-image:url("images/luck.png");
+            position: absolute;
+            left: 136px;
+            top: 138px;
+            cursor:pointer;
+        }
+    </style>
+    <script type="text/javascript">
+        var raNum;
+        $(function(){
+            $("#d2").click(function(){
+                raNum = Math.random()*360;
+                $(this).rotate({
+                    duration:3000,
+                    angle:0,
+                    animateTo:720+raNum,
+                    callback:function(){
+                        A();
+                    }
+                })
+            })
+        });
+        function A(){
+            if(-18<raNum && raNum<18){
+                alert("一等奖");
+                return;
+            } else if(18<raNum && raNum<54){
+                alert("谢谢参与");
+                return;
+            } else if(54<raNum && raNum<90){
+                alert("五等奖");
+                return;
+            } else if(90<raNum && raNum<126){
+                alert("九等奖");
+                return;
+            } else if(126<raNum && raNum<162){
+                alert("四等奖");
+                return;
+            } else if(162<raNum && raNum<198){
+                alert("八等奖");
+                return;
+            } else if(198<raNum && raNum<234){
+                alert("三等奖");
+                return;
+            } else if(234<raNum && raNum<270){
+                alert("七等奖");
+                return;
+            } else if(270<raNum && raNum<306){
+                alert("二等奖");
+                return;
+            } else if(306<raNum && raNum<342){
+                alert("六等奖");
+                return;
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="d1"></div>
+    <div id="d2"></div>
+</body>
+</html>
